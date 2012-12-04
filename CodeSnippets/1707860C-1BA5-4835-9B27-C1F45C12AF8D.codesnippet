@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    myListArray= [[NSArray alloc]initWithObjects:@"老牛",@"敌法",@"小Y",@"NEC",@"小小",@"白虎", nil];
+    
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1707860C-1BA5-4835-9B27-C1F45C12AF8D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>tableview的数组初始化的位置</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

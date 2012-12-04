@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark -MessageInfodelegate
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+                 didFinishWithResult:(MessageComposeResult)result {
+    
+    switch (result)
+    {
+        case MessageComposeResultCancelled:
+            //            LOG_EXPR(@"Result: SMS sending canceled");
+            NSLog(@"发送取消");
+            break;
+        case MessageComposeResultSent:
+            //            LOG_EXPR(@"Result: SMS sent");
+            NSLog(@"发送成功");
+            break;
+        case MessageComposeResultFailed:
+            //            [UIAlertView quickAlertWithTitle:@"短信发送失败" messageTitle:nil dismissTitle:@"关闭"];
+            NSLog(@"发送失败");
+            break;
+        default:
+            //            LOG_EXPR(@"Result: SMS not sent");
+            NSLog(@"其它");
+            break;
+    }
+    [self dismissModalViewControllerAnimated:YES];
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A744C5DB-3F0C-487C-A4EF-02A4ADBA238F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>短信管理代理方法</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

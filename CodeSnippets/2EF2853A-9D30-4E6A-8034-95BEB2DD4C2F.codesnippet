@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import &lt;UIKit/UIKit.h&gt;
+
+@interface TabViewViewController : UIViewController&lt;UITableViewDataSource,UITableViewDelegate&gt;
+{
+//    NSArray *myListArray;
+}
+@property(retain,nonatomic)NSArray *myListArray;
+
+@end</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>2EF2853A-9D30-4E6A-8034-95BEB2DD4C2F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>tableview协议添加位置</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

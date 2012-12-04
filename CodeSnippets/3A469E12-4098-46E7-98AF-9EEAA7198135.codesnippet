@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>StringOrComment</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//
+//  DuanHaiCell.m
+//  ClassicTable
+//
+//  Created by bravesoft on 12-11-20.
+//  Copyright (c) 2012年 bravesoft. All rights reserved.
+//  ios开发攻略第二章page58's method
+
+#import "MyNormalCell.h"
+
+@implementation MyNormalCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+
++(id)cellForTableView:(UITableView *)tableView{
+    NSString *cellID = [self cellIdentifier];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    if (cell == nil)
+    {
+        cell = [[[self alloc] initWithCellIdentifier:cellID] autorelease];
+        
+    }
+    return cell;
+}
+
++(NSString *)cellIdentifier{
+    
+    return NSStringFromClass([self class]);
+    
+}
+
+-(id)initWithCellIdentifier:(NSString *)cellID{
+    return [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
+}
+
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3A469E12-4098-46E7-98AF-9EEAA7198135</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>MyNormalCell.m</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

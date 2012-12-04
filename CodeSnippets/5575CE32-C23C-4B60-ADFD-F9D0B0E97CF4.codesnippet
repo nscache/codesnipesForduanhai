@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>StringOrComment</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//
+//  ViewController.m
+//  FMDBTest
+//
+//  Created by 唐韧 on 12-8-16.
+//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//
+
+#import "ViewController.h"
+#import "FMDatabase.h"
+#import "FMDatabaseQueue.h"
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+@synthesize nameTextField;
+@synthesize ageTextField;
+@synthesize genderTextField;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+}
+
+//点击按钮后执行保存到数据库的操作
+- (IBAction)saveButtonClicked:(id)sender {
+    //获取Document文件夹下的数据库文件，没有则创建
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *dbPath = [docPath stringByAppendingPathComponent:@"user.db"];
+    
+    //获取数据库并打开
+    FMDatabase *database  = [FMDatabase databaseWithPath:dbPath];
+    if (![database open]) {
+        NSLog(@"Open database failed");
+        return;
+    }
+    
+    //创建表（FMDB中只有update和query操作，出了查询其他都是update操作）
+    [database executeUpdate:@"create table user (name text,gender text,age integer)"];
+    
+    //插入数据
+    BOOL insert = [database executeUpdate:@"insert into user values (?,?,?)",nameTextField.text,genderTextField.text,ageTextField.text];
+    
+    if (insert) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"保存成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+    }
+    
+    [database close];
+}
+
+//点击按钮后执行查询操作
+- (IBAction)queryButtonTapped:(id)sender {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentPath = [paths objectAtIndex:0];
+    NSString *dbPath = [documentPath stringByAppendingPathComponent:@"user.db"];
+    
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    if (![database open]) {
+        return;
+    }
+    
+    //不需要像Android中那样关闭Cursor关闭FMResultSet，因为相关的数据库关闭时，FMResultSet也会被自动关闭
+    FMResultSet *resultSet = [database executeQuery:@"select * from user"];
+    while ([resultSet next]) {
+        NSString *name = [resultSet stringForColumn:@"name"];
+        NSString *gender = [resultSet stringForColumn:@"gender"];
+        int age = [resultSet intForColumn:@"age"];
+        NSLog(@"Name:%@,Gender:%@,Age:%d",name,gender,age);
+        
+    }
+    
+    [database close];
+    //这里也不需要release
+//    [database release];
+}
+
+//执行条件查询操作
+- (IBAction)queryByConditionBtnTapped:(id)sender {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [paths objectAtIndex:0];
+    NSString *dbPath = [docPath stringByAppendingPathComponent:@"user.db"];
+    
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    if (![database open]) {
+        return;
+    }
+    
+    FMResultSet *resultSet = [database executeQuery:@"select * from user where name = ?",@"Ryan"];
+    while ([resultSet next]) {
+        NSString *name = [resultSet stringForColumn:@"name"];
+        NSString *gender = [resultSet stringForColumn:@"gender"];
+        int age = [resultSet intForColumn:@"age"];
+        NSLog(@"Name:%@,Gender:%@,Age:%d",name,gender,age);
+    }
+    
+    [database close];
+}
+
+//执行更新操作
+- (IBAction)updateBtnTapped:(id)sender {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [paths objectAtIndex:0];
+    NSString *dbPath = [docPath stringByAppendingPathComponent:@"user.db"];
+    
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    if (![database open]) {
+        return;
+    }
+    
+    //参数必须是NSObject的子类，int,double,bool这种基本类型，需要封装成对应的包装类才可以
+    BOOL update = [database executeUpdate:@"update user set name = ? where age = ?",@"RyanTang",[NSNumber numberWithInt:24]];
+
+    if(update){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"更新成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+    }
+
+    [database close];
+}
+
+//执行删除操作
+- (IBAction)deleteBtnTapped:(id)sender {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [paths objectAtIndex:0];
+    NSString *dbPath = [docPath stringByAppendingPathComponent:@"user.db"];
+    
+    FMDatabase *database = [FMDatabase databaseWithPath:dbPath];
+    if (![database open]) {
+        return;
+    }
+
+    BOOL delete = [database executeUpdate:@"delete from user where name = ?",@"Tang"];
+    if (delete) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"删除成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+
+    }
+    
+    [database close];
+}
+
+-(void)executeDBOperation
+{
+    //获取Document文件夹下的数据库文件，没有则创建
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *dbPath = [docPath stringByAppendingPathComponent:@"user.db"];
+    
+    /*如果我们的app需要多线程操作数据库，那么就需要使用FMDatabaseQueue来保证线程安全了。 切记不能在多个线程中共同一个FMDatabase对象并且在多个线程中同时使用，这个类本身不是线程安全的，这样使用会造成数据混乱等问题。
+     使用FMDatabaseQueue很简单，首先用一个数据库文件地址来初使化FMDatabaseQueue，然后就可以将一个闭包(block)传入inDatabase方法中。 在闭包中操作数据库，而不直接参与FMDatabase的管理。
+     */
+    FMDatabaseQueue *databaseQueue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    [databaseQueue inDatabase:^(FMDatabase *db){
+    [db executeUpdate:@"insert into user values (?,?,?)",@"Ren",@"Male",[NSNumber numberWithInt:20]];
+    }];
+    [databaseQueue close];
+}
+
+//点击背景执行的事件
+/*当通过键盘在UITextField中输入完毕后，点击屏幕空白区域关闭键盘的操作 
+ 设置步骤是打开.xib文件选中整个视图，然后将属性选择器中的class由UIView改成UIControl，然后在事件选取器中选择Touch Down事件并连线到.h文件中的backgroundTapped方法 
+ */  
+- (IBAction)backTapped:(id)sender {
+    [nameTextField resignFirstResponder];
+    [genderTextField resignFirstResponder];
+    [ageTextField resignFirstResponder];
+}
+
+- (void)viewDidUnload
+{
+    [self setNameTextField:nil];
+    [self setAgeTextField:nil];
+    [self setGenderTextField:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void)dealloc {
+    [nameTextField release];
+    [ageTextField release];
+    [genderTextField release];
+    [super dealloc];
+}
+
+
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5575CE32-C23C-4B60-ADFD-F9D0B0E97CF4</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>sqlite操作</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

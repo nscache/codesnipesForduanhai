@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@protocol NavigationBarViewDelegate;
+
+#import &lt;UIKit/UIKit.h&gt;
+
+@interface NavigationBarView : UIView
+{
+    UIButton *backButton;
+    UILabel *navigationTitle;
+}
+
+
+@property(nonatomic,assign)id&lt;NavigationBarViewDelegate&gt;delegate;
+-(void)setNavigationBarTitle:(NSString *)titleString;
+-(void)showBackButton:(BOOL)show;
+@end
+
+@protocol NavigationBarViewDelegate &lt;NSObject&gt;
+-(void)backButtonClicked;
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>51AE76FD-76A4-497D-9884-69C5D522CEBF</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>自定义navgationbar.h</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

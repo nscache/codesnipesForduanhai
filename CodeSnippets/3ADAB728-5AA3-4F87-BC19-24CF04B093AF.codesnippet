@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>StringOrComment</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//
+//  NavigationBarView.m
+//  FaceWord
+//
+//  Created by 辜智科 on 12-11-12.
+//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//
+
+#import "NavigationBarView.h"
+
+@implementation NavigationBarView
+@synthesize delegate;
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        self.frame = frame;
+        UIImageView *background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+        background.image = [UIImage imageNamed:@"nav_bg.png"];
+        [self addSubview:background];
+        [background release];
+        
+        backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backButton setImage:[UIImage imageNamed:@"nav_btn_back.png"] forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(doBack:) forControlEvents:UIControlEventTouchUpInside];
+        backButton.frame = CGRectMake(10, 10, 52, 30);
+        backButton.hidden = YES;
+        [self addSubview:backButton];
+        
+        navigationTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+        navigationTitle.backgroundColor = [UIColor clearColor];
+        navigationTitle.textAlignment = UITextAlignmentCenter;
+        navigationTitle.textColor = [UIColor whiteColor];
+        navigationTitle.font = [UIFont boldSystemFontOfSize:19];
+        [self addSubview:navigationTitle];
+    }
+    return self;
+}
+
+-(void)setNavigationBarTitle:(NSString *)titleString
+{
+    navigationTitle.text = titleString;
+
+}
+
+-(void)showBackButton:(BOOL)show
+{
+    if(show)
+    {
+        backButton.hidden = NO;
+    }
+}
+
+//delegate方法里面执行
+-(void)doBack:(id)sender
+{
+    [self.delegate backButtonClicked];
+}
+
+-(void)dealloc
+{
+    [navigationTitle release];
+    [super dealloc];
+}
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3ADAB728-5AA3-4F87-BC19-24CF04B093AF</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>自定义navagationbar.m</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

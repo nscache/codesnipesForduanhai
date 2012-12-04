@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//translate the data to the textField
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];RecipeDetailViewController *destViewController =        segue.destinationViewController;        destViewController.recipeName = [recipes objectAtIndex:indexPath.row];    }}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>AA1630A7-FC10-430B-867D-AF3A7B2BD26E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>translate the data to the next the dialogue</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>prepareForSegue&lt;story-board&gt;</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

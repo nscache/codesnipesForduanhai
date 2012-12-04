@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//    MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
+//
+//    picker.messageComposeDelegate = self;
+//    
+//    NSArray *array = [NSArray arrayWithObject:@"请输入你的号码"];
+//    picker.recipients = array;
+//    
+//    NSString *str = [NSString stringWithFormat:@"分享"];
+//    
+//    picker.body =str;
+////    [NSString stringWithFormat:@"我在悠聚会上看到一个很好的聚餐点。网址为http://www.ulucu.com。"];
+//    [self presentModalViewController:picker animated:YES];
+//
+//    
+//    [picker release];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>81FA62F2-4369-4B83-9A5D-63E42129A4A8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>短信管理界面，添加messageui.framework</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>My Code Snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

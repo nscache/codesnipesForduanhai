@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //这个方法返回的cell代表每一行显示的内容，每显示一行都会运行一次此方法。
+    
+    static NSString *NOTIFY = @"随便";
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:NOTIFY];
+    //寻找已经加上自定义标注的当前可重用的cell。
+    if (cell==nil) {
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NOTIFY];
+        //找不到可重用的cell，就再生成一个，格式为默认，加上自定义标注；
+        //if条件里面的是肯定先运行的，在第一次运行时都不可能找到可重用的加上标注的cell
+        //只有列表滑动将已有行给挤出当前view时，挤出的那个cell才会变为可重用的
+    }
+    cell.textLabel.text=[myListArray objectAtIndex:indexPath.row];
+    //将当前行的显示的label设为已定义数组中的一个。
+    //indexPath.row代表当前行
+    return cell;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F0229093-C44B-4F86-9ECB-76A136F328EC</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>viewcontroller.h中要添加两个协议，最后将tabelbiew与协议连接起来</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>uitableviewcell</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

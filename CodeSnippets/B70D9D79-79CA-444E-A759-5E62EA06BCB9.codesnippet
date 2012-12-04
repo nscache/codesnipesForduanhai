@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(IBAction)open:(id)sender{
+//    UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"开始了"
+//                                                       message:@"你选择了" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles: nil];
+    UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"标题" message:@"操作成功" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"选项1",@"选项2",nil ];
+    [alerView show];
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B70D9D79-79CA-444E-A759-5E62EA06BCB9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>uialert sample</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

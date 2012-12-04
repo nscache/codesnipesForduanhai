@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//        case 2:
+//        {
+////            [cell setAccessoryType:UITableViewCellAccessoryNone];
+////        //设置cell选中后不变化
+////            cell.selectionStyle = UITableViewCellSelectionStyleNone; 
+////            
+////            if (row==0) {
+////                UISwitch *swt01 = [[UISwitch alloc] initWithFrame:CGRectMake(200, 8, 79, 27)];
+////                swt01.tag = 1010;
+////                //开光状态从UserDefault中读取
+////                [swt01 setOn:YES];
+////                [cell.contentView addSubview:swt01];
+////                [swt01 release];
+////            }
+////            else{
+////
+////                UISwitch *swt02 = [[UISwitch alloc] initWithFrame:CGRectMake(200, 8, 79, 27)];
+////                swt02.tag = 1011;
+////                [swt02 setOn:YES];
+////                [cell.contentView addSubview:swt02];
+////                [swt02 release];
+////            }
+//        }
+//        
+//            break;
+//  </string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>76AA0796-BEB4-4EAB-A8F7-4D135B6E93F9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>往cell里加入uiswitch</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

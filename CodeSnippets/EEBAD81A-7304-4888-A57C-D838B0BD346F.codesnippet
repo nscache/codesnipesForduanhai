@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //该方法响应列表中行的点击事件
+    
+    
+    NSString *heroSelected=[myListArray objectAtIndex:indexPath.row];
+    //indexPath.row得到选中的行号，提取出在数组中的内容。
+    UIAlertView *myAlertView;
+    myAlertView = [[UIAlertView alloc]initWithTitle:@"dota群英传" message:heroSelected delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    [myAlertView show];
+    //点击后弹出该对话框。
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EEBAD81A-7304-4888-A57C-D838B0BD346F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>如果要实现列表的点击响应的话，需要实现委托协议中的一个方法</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>tableview 点击响应</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import &lt;UIKit/UIKit.h&gt;
+
+@interface MyNormalCell : UITableViewCell{
+    
+}
+
++(id)cellForTableView:(UITableView *)tableView;
++(NSString *)cellIdentifier;
+
+-(id)initWithCellIdentifier:(NSString *)cellID;
+
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4639BBEA-3C4F-47DA-B041-778D096CC05D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>MyNormalCell.h</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>StringOrComment</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//
+//  SettingModel.h
+//  FaceWord
+//
+//  Created by bravesoft on 12-11-12.
+//
+//  osChina's method
+
+#import &lt;Foundation/Foundation.h&gt;
+
+@interface SettingModel : NSObject
+
+@property (retain,nonatomic) NSString * img;
+@property (retain,nonatomic) NSString * title;
+@property (retain,nonatomic) NSString * title2;
+@property NSUInteger tag;
+
+- (id)initWith:(NSString *)_title andImg:(NSString *)_img andTag:(NSUInteger)_tag andTitle2:(NSString *)_title2;
+
+
+@end
+
+
+
+
+//and m'files
+
+//
+//  SettingModel.m
+//  FaceWord
+//
+//  Created by bravesoft on 12-11-12.
+//
+//
+
+#import "SettingModel.h"
+
+@implementation SettingModel
+@synthesize img;
+@synthesize tag;
+@synthesize title;
+@synthesize title2;
+
+- (id)initWith:(NSString *)_title andImg:(NSString *)_img andTag:(NSUInteger)_tag andTitle2:(NSString *)_title2
+{
+    
+    
+    SettingModel *result = [[SettingModel alloc] init];
+    result.title = _title;
+    
+    result.title2 = _title2;
+    result.tag = _tag;
+    result.img = _img;
+    
+    return  result;
+    [result release];
+}
+
+
+
+
+
+@end
+
+
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F2E9CE64-4B3B-4B05-B161-C6E8B8E05FF9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>settingModel-oschina</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
